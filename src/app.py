@@ -6,18 +6,12 @@ import pandas as pd
 
 from sklearn.metrics.pairwise import cosine_similarity
 
-# =========================
-# CONFIG STREAMLIT
-# =========================
 
 st.set_page_config(
     page_title="Clasificador y Recomendador Musical",
     page_icon="🎵"
 )
 
-# =========================
-# CARGA DE MODELOS (cache)
-# =========================
 
 @st.cache_resource
 def load_models():
@@ -34,9 +28,6 @@ def load_models():
 
 model, vectorizer, label_encoder = load_models()
 
-# =========================
-# NLP (cache)
-# =========================
 
 @st.cache_resource
 def load_nlp():
@@ -49,9 +40,6 @@ expresion_stopwords = {
     "yo","ey","ah","ah ah"
 }
 
-# =========================
-# FUNCIONES DE LIMPIEZA
-# =========================
 
 def pre_clean(text):
     text = text.lower()
@@ -75,9 +63,6 @@ def clean_text(text):
     ]
     return " ".join(tokens)
 
-# =========================
-# DATASET + VECTORES (cache)
-# =========================
 
 @st.cache_data
 def load_dataset_and_vectors():
@@ -93,9 +78,6 @@ def load_dataset_and_vectors():
 
 df, lyrics_vectors = load_dataset_and_vectors()
 
-# =========================
-# PREDICCIÓN DE GÉNERO
-# =========================
 
 def predict_genre(text):
     text_clean = clean_text(pre_clean(text))
@@ -103,9 +85,6 @@ def predict_genre(text):
     pred = model.predict(vec)
     return label_encoder.inverse_transform(pred)[0]
 
-# =========================
-# RECOMENDACIÓN OPTIMIZADA
-# =========================
 
 def recommend_song(text, genre):
     text_clean = clean_text(pre_clean(text))
@@ -119,9 +98,6 @@ def recommend_song(text, genre):
 
     return df_genre.iloc[best_idx]["lyrics"]
 
-# =========================
-# UI
-# =========================
 
 st.title("🎶 Clasificador y Recomendador Musical")
 
