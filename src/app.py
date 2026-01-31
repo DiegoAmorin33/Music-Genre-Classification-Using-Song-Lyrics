@@ -54,14 +54,15 @@ def pre_clean(text):
 def clean_text(text):
     doc = nlp(text)
     tokens = [
-        token.lemma_
+        token.text
         for token in doc
         if not token.is_stop
         and not token.is_punct
-        and token.lemma_ not in expresion_stopwords
-        and len(token.lemma_) > 2
+        and token.text not in expresion_stopwords
+        and len(token.text) > 2
     ]
     return " ".join(tokens)
+
 
 
 @st.cache_data
