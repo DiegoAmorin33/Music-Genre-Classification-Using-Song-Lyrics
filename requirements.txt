@@ -1,18 +1,11 @@
-ipyleaflet>=0.14.0
-ipywidgets>=7.7.1
-matplotlib>=3.7.0
-numpy>=1.24.2
-opencv-python>=4.1.2
-pandas>=2.3.3
-psycopg2-binary>=2.9.3
-pymysql>=1.0.2
-python-dotenv>=0.20.0
-requests>=2.27.1
-scikit-learn
-seaborn>=0.12.2
-sqlalchemy>=2.0.38
-sympy>=1.10.1
-xgboost
+streamlit
 
-spacy>=3.7.0
+numpy>=1.23,<2.1
+pandas>=2.1,<2.3
+
+scikit-learn>=1.3,<1.5
+matplotlib>=3.7,<3.9
+seaborn>=0.12,<0.14
+
+spacy>=3.7,<3.8
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
