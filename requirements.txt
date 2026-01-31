@@ -1,18 +1,8 @@
-# App
 streamlit>=1.31.0
 
-# Core
 numpy>=1.24,<2.0
 pandas>=2.0,<2.2
 
-# ML (MISMA versión que el modelo entrenado)
 scikit-learn==1.8.0
 
-# NLP
 spacy==3.7.2
-es-core-news-sm==3.7.0
-
-# Utils
-requests>=2.27
-python-dotenv>=0.20
-sympy>=1.10
