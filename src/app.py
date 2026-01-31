@@ -31,12 +31,7 @@ model, vectorizer, label_encoder = load_models()
 
 @st.cache_resource
 def load_nlp():
-    try:
-        return spacy.load("es_core_news_sm")
-    except OSError:
-        from spacy.cli import download
-        download("es_core_news_sm")
-        return spacy.load("es_core_news_sm")
+    return spacy.blank("es")
 
 nlp = load_nlp()
 
